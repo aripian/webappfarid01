@@ -1,0 +1,24 @@
+{
+  "name": "webappfarid01",
+  "version": "1.0.0",
+  "description": "Single landing page project",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aripian/webappfarid01.git"
+  },
+  "author": "Arif Zakaria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aripian/webappfarid01/issues"
+  },
+  "homepage": "https://github.com/aripian/webappfarid01"
+}

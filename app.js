@@ -35,14 +35,38 @@ app.post('/sendmail',function(req, res){
 	    from: 'aripian.webapp@gmail.com', // sender address
 	    to: req.body.data.email, // list of receivers
 	    subject: 'Terima kasih '+req.body.data.name+' menghubungi kami!', // plain text body
-	    html: '<b>Terima kasih '+req.body.data.name+' mengubungi kami!</b>' // html body
+	    html: '<h2><b>Terima kasih!</b></h2><br />'
+	    		+'Terima kasih <b>'+req.body.data.name +'</b> kerana melawati laman sesawang kami.<br />'
+	    		+'Kami akan hubungi anda semula dalam masa terdekat.<br /><br /><br />'
+	    		+'<b>Sekian</b><br />'
+	    		+'Admin' // html body
 	};
 
 	transporter.sendMail(mailOptions, (error, info) => {
 	    if (error) {
 	        res.json(error);
 	    }
-	    res.json(info);
+	    let mailOptions2 = {
+		    from: 'aripian.webapp@gmail.com', // sender address
+		    to: 'faridsulaiman@gmail.com;', // list of receivers
+		    cc: 'aripian.android@gmail.com',
+		    subject: req.body.data.name+' telah menghubungi anda', // plain text body
+		    html: '<h2><b>Terima kasih!</b></h2><br />'
+	    		+'Nama : <b>'+req.body.data.name +'</b><br />'
+	    		+'Emel : <b>'+req.body.data.email+'</b><br />'
+	    		+'No Telefon : <b>'+req.body.data.phone+'</b><br />'
+	    		+'Negeri : <b>'+req.body.data.state+'</b><br />'
+	    		+'Mesej : <b>'+req.body.data.message+'</b><br /><br />'
+	    		+'<b>Sekian</b><br />'
+	    		+'Admin' // html body
+		};
+
+		transporter.sendMail(mailOptions2, (error, info) => {
+		    if (error) {
+		        res.json(error);
+		    }
+		    res.json(info);
+		});
 	});
 
 })

@@ -39,15 +39,38 @@
 </head>
 
 <body id="page-top" class="index">
-    <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1904182033194916',
+          xfbml      : true,
+          version    : 'v2.9'
+        });
+        FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+            var accessToken = response.authResponse.accessToken;
+          } 
+        } );
+        FB.AppEvents.logPageView();
+        FB.api(
+          '/491150854380438/feed',
+          'GET',
+          {"fields":"attachments"},
+          function(response) {
+              console.log(response);
+          }
+        );
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
     </script>
+
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
@@ -265,7 +288,12 @@
                     
                 </div>
                 <div class="col-sm-4">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpelaburanunittrust%2F&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                    <div
+                        class="fb-like"
+                        data-share="true"
+                        data-width="450"
+                        data-show-faces="true">
+                    </div>
                 </div>
                 <div class="col-sm-4">
                     

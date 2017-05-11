@@ -49,13 +49,15 @@
         FB.getLoginStatus(function(response) {
           if (response.status === 'connected') {
             var accessToken = response.authResponse.accessToken;
+            console.log(accessToken)
           } 
         } );
+
         FB.AppEvents.logPageView();
         FB.api(
           '/491150854380438/feed',
           'GET',
-          {"fields":"attachments"},
+          {"fields":"attachments",},
           function(response) {
               console.log(response);
           }

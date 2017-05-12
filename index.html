@@ -46,23 +46,18 @@
           xfbml      : true,
           version    : 'v2.9'
         });
-        FB.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-            var accessToken = response.authResponse.accessToken;
-            console.log(accessToken)
-          } 
-        } );
-
         FB.AppEvents.logPageView();
         FB.api(
-          '/491150854380438/feed',
+          '/pelaburanunittrust/posts',
           'GET',
-          {"fields":"attachments",},
+          {"fields":"attachments","access_token":"1904182033194916|17390b5fe586d667c92fcece088a0e8b"},
           function(response) {
               console.log(response);
           }
         );
       };
+
+      
 
       (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
@@ -403,7 +398,6 @@
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/jquery.sticky.js"></script>
 
      <!-- Angular -->
     <script src="vendor/angular.min.js"></script>

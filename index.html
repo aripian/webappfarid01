@@ -25,7 +25,7 @@
     <!-- Theme CSS -->
     <link href="css/agency.css" rel="stylesheet">
 
-    Magnific Popup CSS
+    <!-- Magnific Popup CSS -->
     <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,367 +35,405 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
     <![endif]-->
 
+    <style type="text/css">
+        
+
+    </style>
+
 
 </head>
 
-<body id="page-top" class="index">
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1904182033194916',
-          xfbml      : true,
-          version    : 'v2.9'
-        });
-        FB.AppEvents.logPageView();
-        FB.api(
-          '/pelaburanunittrust/posts',
-          'GET',
-          {"fields":"attachments","access_token":"1904182033194916|17390b5fe586d667c92fcece088a0e8b"},
-          function(response) {
-              console.log(response);
-          }
-        );
-      };
+<body id="page-top" class="index" ng-controller = "mainController" ng-init = "init()">
 
-      
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Farid Sulaiman</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Gallery</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#feed">Feed</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#team">Team</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Personal Finance</div>
-                <div class="intro-heading">Unit Trust Consultant</div>
-                <a href="#about" class="page-scroll btn btn-xl">Lebih Lanjut</a>
-            </div>
-        </div>
-    </header>
-
-        <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About</h2>
-                    <hr class="primary">
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+    <div ng-hide="!loading">
+        Loading
+    </div>
+    <div ng-hide="loading">
+        <!-- Navigation -->
+        <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Farid Sulaiman</a>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
                         </li>
                         <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
+                            <a class="page-scroll" href="#about">About</a>
                         </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Phase Two Expansion</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
+                        <li>
+                            <a class="page-scroll" href="#portfolio">Gallery</a>
                         </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
-                            </div>
+                        <li>
+                            <a class="page-scroll" href="#feed">Feed</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#team">Team</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact">Contact</a>
                         </li>
                     </ul>
                 </div>
+                <!-- /.navbar-collapse -->
             </div>
-        </div>
-    </section>
+            <!-- /.container-fluid -->
+        </nav>
 
-    <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-        	<div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Galeri</h2>
-                    <hr class="primary">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in">Personal Finance</div>
+                    <div class="intro-heading">Unit Trust Consultant</div>
+                    <a href="#about" class="page-scroll btn btn-xl">Lebih Lanjut</a>
                 </div>
             </div>
-            <div class="row no-gutter popup-gallery">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </header>
 
-    <section id="feed">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Facebook Feed</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    
-                </div>
-                <div class="col-sm-4">
-                    <div
-                        class="fb-like"
-                        data-share="true"
-                        data-width="450"
-                        data-show-faces="true">
+            <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">About</h2>
+                        <hr class="primary">
+                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Tentang Kami</h2>
-                    <hr class="primary">
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="img/team/farid.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Farid Sulaiman</h4>
-                        <p class="text-muted">Shariah Financial Adviser</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="https://www.facebook.com/farid.sulaiman.35"><i class="fa fa-facebook"></i></a>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="timeline">
+                            <li>
+                                <div class="timeline-image">
+                                    <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>2009-2011</h4>
+                                        <h4 class="subheading">Our Humble Beginnings</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    </div>
+                                </div>
                             </li>
-                            <li><a href="https://www.linkedin.com/in/farid-sulaiman-2a9b3946"><i class="fa fa-linkedin"></i></a>
+                            <li class="timeline-inverted">
+                                <div class="timeline-image">
+                                    <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>March 2011</h4>
+                                        <h4 class="subheading">An Agency is Born</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="timeline-image">
+                                    <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>December 2012</h4>
+                                        <h4 class="subheading">Transition to Full Service</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted">
+                                <div class="timeline-image">
+                                    <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>July 2014</h4>
+                                        <h4 class="subheading">Phase Two Expansion</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted">
+                                <div class="timeline-image">
+                                    <h4>Be Part
+                                        <br>Of Our
+                                        <br>Story!</h4>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                   
-                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Boleh letak biodata diri di sini</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container" ng-controller = "mainController">
-            <div class="row">
-            	<div class="col-lg-12">
-            		<div class="col-lg-6" style="padding-right:20px; border-right: 1px solid #ccc;">
-            			<div class="col-lg-8 col-lg-offset-2 text-center">
-		                    <h2 class="section-heading">Hubungi Kami!</h2>
-		                    <hr class="primary">
-		                    <p class="section-secondary">Ingin bertanya sesuatu atau ingin sekadar hubungi kami? Tekan butang dibawah!</p>
-		                </div>
-		                <div class="col-lg-12 text-center">
-		                    <button type="button" ng-click="contactUs()" class="btn btn-warning"><i class="fa fa-envelope-o fa-3x sr-contact"></i></button>
-		                </div>
-            		</div>
-            		<div class="col-sm-6">
-            			<div class="col-lg-8 col-lg-offset-2 text-center">
-		                    <h2 class="section-heading">Muat Turun!</h2>
-		                    <hr class="primary">
-		                    <p class="section-secondary">Muat turun eBook "Tajuk Ebook" secara percuma! Cuma tekan butang dibawah</p>
-		                </div>
-		                <div class="col-lg-12 text-center">
-		                    <button type="button" ng-click="contactUs()" class="btn btn-warning"><i class="fa fa-book fa-3x sr-contact"></i></button>
-		                </div>
-            		</div>
-            	</div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2016</span>
+        <section class="no-padding" id="portfolio">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Galeri</h2>
+                        <hr class="primary">
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
+                <div class="row no-gutter popup-gallery">
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
+                            <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="feed">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Facebook Feed</h2>
+                        <hr class="primary">
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner">
+                      
+                        <div class="item active">
+                          <img src="http://placehold.it/760x400/cccccc/ffffff">
+                           <div class="carousel-caption">
+                            <h4><a href="#">Lorem ipsum dolor sit amet consetetur sadipscing</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+                          </div>
+                        </div><!-- End Item -->
+                 
+                         <div class="item">
+                          <img src="http://placehold.it/760x400/999999/cccccc">
+                           <div class="carousel-caption">
+                            <h4><a href="#">consetetur sadipscing elitr, sed diam nonumy eirmod</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+                          </div>
+                        </div><!-- End Item -->
+                        
+                        <div class="item">
+                          <img src="http://placehold.it/760x400/dddddd/333333">
+                           <div class="carousel-caption">
+                            <h4><a href="#">tempor invidunt ut labore et dolore</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+                          </div>
+                        </div><!-- End Item -->
+                        
+                        <div class="item">
+                          <img src="http://placehold.it/760x400/999999/cccccc">
+                           <div class="carousel-caption">
+                            <h4><a href="#">magna aliquyam erat, sed diam voluptua</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+                          </div>
+                        </div><!-- End Item -->
+
+                        <div class="item">
+                          <img src="http://placehold.it/760x400/dddddd/333333">
+                           <div class="carousel-caption">
+                            <h4><a href="#">tempor invidunt ut labore et dolore magna aliquyam erat</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+                          </div>
+                        </div><!-- End Item -->
+                                
+                      </div><!-- End Carousel Inner -->
+
+
+                    <ul class="list-group col-sm-4">
+                      <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><h4>Lorem ipsum dolor sit amet consetetur sadipscing</h4></li>
+                      <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><h4>consetetur sadipscing elitr, sed diam nonumy eirmod</h4></li>
+                      <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><h4>tempor invidunt ut labore et dolore</h4></li>
+                      <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><h4>magna aliquyam erat, sed diam voluptua</h4></li>
+                      <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><h4>tempor invidunt ut labore et dolore magna aliquyam erat</h4></li>
                     </ul>
+
+                      <!-- Controls -->
+                      <div class="carousel-controls">
+                          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                          </a>
+                          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                          </a>
+                      </div>
+
+                    </div><!-- End Carousel -->
                 </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
+        <!-- Team Section -->
+        <section id="team" class="bg-light-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Tentang Kami</h2>
+                        <hr class="primary">
+                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="img/team/farid.jpg" class="img-responsive img-circle" alt="">
+                            <h4>Farid Sulaiman</h4>
+                            <p class="text-muted">Shariah Financial Adviser</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a href="https://www.facebook.com/farid.sulaiman.35"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="https://www.linkedin.com/in/farid-sulaiman-2a9b3946"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <p class="large text-muted">Boleh letak biodata diri di sini</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-lg-6" style="padding-right:20px; border-right: 1px solid #ccc;">
+                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                                <h2 class="section-heading">Hubungi Kami!</h2>
+                                <hr class="primary">
+                                <p class="section-secondary">Ingin bertanya sesuatu atau ingin sekadar hubungi kami? Tekan butang dibawah!</p>
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <button type="button" ng-click="contactUs()" class="btn btn-warning"><i class="fa fa-envelope-o fa-3x sr-contact"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                                <h2 class="section-heading">Muat Turun!</h2>
+                                <hr class="primary">
+                                <p class="section-secondary">Muat turun eBook "Tajuk Ebook" secara percuma! Cuma tekan butang dibawah</p>
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <button type="button" ng-click="contactUs()" class="btn btn-warning"><i class="fa fa-book fa-3x sr-contact"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="copyright">Copyright &copy; Your Website 2016</span>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li><a href="#">Privacy Policy</a>
+                            </li>
+                            <li><a href="#">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
+    
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
@@ -426,6 +464,10 @@
 
     <!-- SweetAlert -->
     <script src="vendor/sweetalert/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        
+    </script>
 </body>
 
 </html>

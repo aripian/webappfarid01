@@ -2,6 +2,41 @@ var mainApp = angular.module("mainApp", ['angularModalService']);
          
 mainApp.controller('mainController', function($scope, ModalService, $http) {
 
+   $scope.loading = true;
+   $scope.fbPost;
+
+   $scope.init = function() {
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1904182033194916',
+          xfbml      : true,
+          version    : 'v2.9'
+        });
+        // FB.AppEvents.logPageView();
+        FB.api(
+          '/pelaburanunittrust/posts',
+          'GET',
+          {"fields":"attachments","access_token":"1904182033194916|17390b5fe586d667c92fcece088a0e8b"},
+          function(response) {
+            if(response){
+              $scope.fbPost = response;
+              $scope.loading = false;
+              console.log(response);
+              $scope.$apply()
+            }
+          }
+        );
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+   }
+
    $scope.contactUs = function() {
 
     //console.log("This works!")

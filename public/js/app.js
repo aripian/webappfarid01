@@ -16,7 +16,7 @@ mainApp.controller('mainController', function($scope, ModalService, $http) {
         FB.api(
           '/pelaburanunittrust/posts',
           'GET',
-          {"fields":"attachments","access_token":"1904182033194916|17390b5fe586d667c92fcece088a0e8b"},
+          {"fields":"attachments","limit":"5","filter":"app_2305272732","access_token":"1904182033194916|17390b5fe586d667c92fcece088a0e8b"},
           function(response) {
             if(response){
               $scope.fbPost = response;

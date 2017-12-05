@@ -1,6 +1,6 @@
-var mainApp = angular.module("mainApp", ['angularModalService']);
+var mainApp = angular.module("mainApp", ['angularModalService', 'ngFileSaver']);
          
-mainApp.controller('mainController', function($scope, ModalService, $http) {
+mainApp.controller('mainController', function($scope, ModalService, FileSaver, $http) {
 
    $scope.loading = true;
    $scope.fbPost;
@@ -39,7 +39,6 @@ mainApp.controller('mainController', function($scope, ModalService, $http) {
 
    $scope.contactUs = function() {
 
-    //console.log("This works!")
     ModalService.showModal({
       templateUrl: "contactus/contactus.html",
       controller: "contactController",
@@ -62,6 +61,32 @@ mainApp.controller('mainController', function($scope, ModalService, $http) {
       });
     });
 
+  };
+
+  $scope.downloadBook = function() {
+
+    ModalService.showModal({
+      templateUrl: "contactus/ebook.html",
+      controller: "contactController",
+      inputs: {
+        title: "Muat turun ebook"
+      }
+    }).then(function(modal) {
+      modal.element.modal();
+      modal.close.then(function(result) {
+        if(result.user){
+          $http.post('/ebook',{
+            data: result.user
+          }).then(function success(response) {
+              var blob = new Blob([response.data], { type: 'application/pdf' });
+              FileSaver.saveAs(blob, 'PROJEK TAMBAH INCOME DENGAN UNIT TRUST.pdf');
+              swal("Terima Kasih "+result.user.name+"!", "Ebook anda akan dimuat turun sebentar lagi", "success")
+          }, function myError(response) {
+              $scope.myWelcome = response.statusText;
+          });
+        }
+      });
+    });
   };
 
 });

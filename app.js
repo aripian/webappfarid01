@@ -29,6 +29,53 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 })
 
+app.post('/ebook', function(req, res) {
+	let mailOptions = {
+	    from: 'aripian.webapp@gmail.com', // sender address
+	    to: req.body.data.email, // list of receivers
+	    subject: 'Terima kasih '+req.body.data.name+' Muat Turun Ebook!', // plain text body
+	    html: '<h2><b>Terima kasih!</b></h2><br />'
+	    		+'Terima kasih <b>'+req.body.data.name +'</b> kerana muat turun ebook.<br />'
+	    		+'Kami akan hubungi anda semula dalam masa terdekat.<br /><br /><br />'
+	    		+'<b>Sekian</b><br />'
+	    		+'Admin' // html body
+	};
+
+	transporter.sendMail(mailOptions, (error, info) => {
+	    if (error) {
+	        res.json(error);
+	    }
+	    let mailOptions2 = {
+		    from: 'aripian.webapp@gmail.com', // sender address
+		    to: 'faridsulaiman@gmail.com;', // list of receivers
+		    cc: 'aripian.android@gmail.com',
+		    subject: req.body.data.name+' telah menghubungi anda', // plain text body
+		    html: '<h2><b>Terima kasih!</b></h2><br />'
+	    		+'Nama : <b>'+req.body.data.name +'</b><br />'
+	    		+'Emel : <b>'+req.body.data.email+'</b><br />'
+	    		+'No Telefon : <b>'+req.body.data.phone+'</b><br />'
+	    		+'Negeri : <b>'+req.body.data.state+'</b><br />'
+	    		+'Mesej : <b>Muat Turun Ebook</b><br /><br />'
+	    		+'<b>Sekian</b><br />'
+	    		+'Admin' // html body
+		};
+
+		transporter.sendMail(mailOptions2, (error, info) => {
+		    if (error) {
+		        res.json(error);
+		    }
+		    var SkipperDisk = require('skipper-disk');
+		    var fileAdapter = SkipperDisk(/* optional opts */);
+
+		    fileAdapter.read('./ebook/PROJEK TAMBAH INCOME DENGAN UNIT TRUST.pdf')
+		    .on('error', function (err){
+		     	return res.serverError(err);
+		    })
+		    .pipe(res);  
+		});
+	});  	
+})
+
 app.post('/sendmail',function(req, res){
 	
 	let mailOptions = {
@@ -49,6 +96,7 @@ app.post('/sendmail',function(req, res){
 	    let mailOptions2 = {
 		    from: 'aripian.webapp@gmail.com', // sender address
 		    to: 'faridsulaiman@gmail.com;', // list of receivers
+		    // to: 'aripian.android@gmail.com',
 		    cc: 'aripian.android@gmail.com',
 		    subject: req.body.data.name+' telah menghubungi anda', // plain text body
 		    html: '<h2><b>Terima kasih!</b></h2><br />'

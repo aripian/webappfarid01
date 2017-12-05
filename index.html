@@ -29,6 +29,9 @@
     <!-- Magnific Popup CSS -->
     <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css">
 
+    <!-- Slider -->
+    <link href="css/full-slider.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,36 +40,163 @@
     <![endif]-->
 
     <style type="text/css">
-        #myCarousel .carousel-caption {
-            left:0;
-            right:0;
-            bottom:0;
-            text-align:left;
-            padding:10px;
-            background:rgba(0,0,0,0.6);
-            text-shadow:none;
+        body{
+          background-color: #FFFFFF;
+          color: #000000;
+        }
+        .youtube-carousel{
+          border: 4px solid #FFFFFF;
         }
 
-        #myCarousel .list-group {
-            position:absolute;
-            top:0;
-            right:0;
-        }
-        #myCarousel .list-group-item {
-            border-radius:0px;
-            cursor:pointer;
-        }
-        #myCarousel .list-group .active {
-            background-color:#eee;  
+        .video-container { 
+           position: relative; /* keeps the aspect ratio */ 
+           padding-bottom: 56.25%; /* fine tunes the video positioning */ 
+           padding-top: 60px; overflow: hidden;
+           margin-bottom: -1px;
+           margin-right: -1px;   
         }
 
-        @media (min-width: 992px) { 
-            #myCarousel {padding-right:33.3333%;}
-            #myCarousel .carousel-controls {display:none;}  
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+          position: absolute;  
+          top: 0; 
+          left: 0; 
+          width: 100%; 
+          height: 100%;
         }
-        @media (max-width: 991px) { 
-            .carousel-caption p,
-            #myCarousel .list-group {display:none;} 
+          
+        .carousel-control .glyphicon-chevron-left{
+          top:35%;
+          font-size: 20px;
+          left:5%;
+          margin: 0;
+        }
+
+        .carousel-control .glyphicon-chevron-right{
+          top:35%;
+          font-size: 20px;
+          left:33%;
+          margin: 0;
+        }
+
+        .carousel-control.left, .carousel-control.right {
+          background-image: none;
+          color: #ffffff;
+          top: 50%;
+          transform: translate(0,-50%);
+          -webkit-transform: translate(0,-50%);
+          -ms-transform: translate(0,-50%);
+          opacity: 1;
+          height:120px;
+        }
+
+        .controls{
+           display: none;
+        }
+
+        .carousel-control:hover {
+          text-decoration: none;
+          filter: alpha(opacity=60);
+          outline: 0;
+          opacity: 0.6;
+        }
+
+        .left-button {
+          height:70px;
+          width:35px;
+          border-radius: 0 90px 90px 0;
+          top: 50%;
+          -webkit-transform: translate(0,-50%);
+          -ms-transform: translate(0,-50%);
+          transform: translate(0,-50%);
+          -moz-border-radius: 0 90px 90px 0;
+          -webkit-border-radius: 0 90px 90px 0;
+          background-color: #BAA15B;
+          display: inline-block;
+          position: relative;
+          float:left;
+          /*subpixel bug*/
+          margin-left: -1px; 
+        }
+
+        .right-button {
+          height:70px;
+          width:35px;
+          border-radius: 90px 0 0 90px;
+          top: 50%;
+          -webkit-transform: translate(0,-50%);
+          -ms-transform: translate(0,-50%);
+          transform: translate(0,-50%);
+          -moz-border-radius: 90px 0 0 90px;
+          -webkit-border-radius: 90px 0 0 90px;
+          background-color: #BAA15B;
+          display: inline-block;
+          position: relative;
+          float:right;
+          /*subpixel bug*/
+          margin-right: -1px;
+        }
+
+
+        .carousel-caption {
+         display: none;
+         background: none repeat scroll 0 0 #BAA15B;
+          bottom: 0;
+          font-size: 12px;
+          text-align: center;
+          opacity: 1;
+          padding:7px 30px 7px;
+          text-transform: uppercase;
+          z-index:11;
+          pointer-events:none;
+        }
+
+        @media screen and (min-width: 768px) {
+        .right-button {
+          height:120px;
+          width:60px;
+          border-radius: 90px 0 0 90px;
+          -moz-border-radius: 90px 0 0 90px;
+          -webkit-border-radius: 90px 0 0 90px;
+          display: inline-block;
+          position: relative;
+          float:right;
+        }
+
+        .left-button {
+          height:120px;
+          width:60px;
+          border-radius: 0 90px 90px 0;
+          -moz-border-radius: 0 90px 90px 0;
+          -webkit-border-radius: 0 90px 90px 0;
+          display: inline-block;
+          position: relative;
+          float:left;
+        }
+
+        .carousel-control .glyphicon-chevron-left{
+          top:35%;
+          font-size: 35px;
+          left:5%;
+        }
+
+        .carousel-control .glyphicon-chevron-right{
+          top:35%;
+          font-size: 35px;
+          left:35%;
+        }
+
+        .carousel-caption {
+          font-size: 18px;
+          padding:15px 20px 15px;
+          }
+        }
+        @media screen and (min-width: 992px) {
+         .carousel-caption {
+            font-size: 18px;
+            padding:15px 20px 15px;
+          }
         }
     </style>
 
@@ -124,40 +254,43 @@
 
         <!-- Header -->
         <header>
-            <div class="container">
-                <div class="intro-text">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-<!--                     <div class="intro-lead-in">Personal Finance</div> -->
-                    <div class="intro-heading">Unit Trust Consultant</div>
-                    <a href="#about" class="page-scroll btn btn-xl">Lebih Lanjut</a>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h3>First Slide</h3>
+                    <p>This is a description for the first slide.</p>
+                  </div>
                 </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h3>Second Slide</h3>
+                    <p>This is a description for the second slide.</p>
+                  </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h3>Third Slide</h3>
+                    <p>This is a description for the third slide.</p>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
         </header>
 
@@ -300,16 +433,34 @@ Pada dasarnya saya ingin memperolehi RM1500 ke RM2000 sebulan untuk membuar baya
                     </div>
                 </div>
             </div>
-            <div class="row text-center">
-                <br>
-                <br>
-                <iframe width="560" height="300" src="https://www.youtube.com/embed/tX5M90QjeuU" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="row text-center">
-                <br>
-                <br>
-                <iframe width="854" height="480" src="https://www.youtube.com/embed/CbyBNUPV86o" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <div id="random_number1" class="carousel slide youtube-carousel"  data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                      <div class="video-container item active">
+                        <div class="youtube-video" id='tX5M90QjeuU'></div>
+                        <div class="carousel-caption">Video 1</div>
+                      </div>
+                      <div class="video-container item">
+                        <div class="youtube-video" id='CbyBNUPV86o'></div>
+                        <div class="carousel-caption">Video 2</div>
+                      </div>
+                    </div>
+                    <div class="controls">
+                      <a class="left carousel-control" href="#random_number1" data-slide="prev">
+                        <div class="left-button">
+                          <div class="glyphicon glyphicon-chevron-left"></div>
+                        </div>
+                      </a>
+                      <a class="right carousel-control" href="#random_number1" data-slide="next">        
+                        <div class="right-button">
+                          <div class="glyphicon glyphicon-chevron-right"></div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </section>
 
         <section id="feed">
@@ -382,7 +533,7 @@ Pada dasarnya saya ingin memperolehi RM1500 ke RM2000 sebulan untuk membuar baya
                                 <p class="section-secondary">Muat turun eBook "Tajuk Ebook" secara percuma! Cuma tekan butang dibawah</p>
                             </div>
                             <div class="col-lg-12 text-center">
-                                <button type="button" ng-click="contactUs()" class="btn btn-warning"><i class="fa fa-book fa-3x sr-contact"></i></button>
+                                <button type="button" ng-click="downloadBook()" class="btn btn-warning"><i class="fa fa-book fa-3x sr-contact"></i></button>
                             </div>
                         </div>
                     </div>
@@ -463,6 +614,90 @@ Pada dasarnya saya ingin memperolehi RM1500 ke RM2000 sebulan untuk membuar baya
 
     <!-- SweetAlert -->
     <script src="vendor/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Angular file saver -->
+    <script src="vendor/angular-file-saver.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var youtubeReady = false;
+
+        //Variable for the dynamically created youtube players
+        var players= new Array();
+        var isPlaying = false;
+        function onYouTubeIframeAPIReady(){
+          //The id of the iframe and is the same as the videoId 
+          jQuery(".youtube-video").each(function(i, obj)  {
+             players[obj.id] = new YT.Player(obj.id, {         
+                      videoId: obj.id,
+                        playerVars: {
+                        controls: 2,
+                      rel:0,
+                      autohide:1,
+                      showinfo: 0 ,
+                      modestbranding: 1,
+                      wmode: "transparent",
+                      html5: 1
+                },    
+                events: {
+                  'onStateChange': onPlayerStateChange
+                }
+               });
+             });
+             youtubeReady = true;
+          }
+
+
+        function onPlayerStateChange(event) {
+          var target_control =  jQuery(event.target.getIframe()).parent().parent().parent().find(".controls");
+          
+          var target_caption = jQuery(event.target.getIframe()).parent().find(".carousel-caption");
+          switch(event.data){
+            case -1:
+              jQuery(target_control).fadeIn(500);
+              jQuery(target_control).children().unbind('click');
+              break
+             case 0:
+              jQuery(target_control).fadeIn(500);
+              jQuery(target_control).children().unbind('click');
+              break;
+             case 1:
+              jQuery(target_control).children().click(function () {return false;});
+              jQuery(target_caption).fadeOut(500);
+              jQuery(target_control).fadeOut(500);
+               break;
+              case 2:
+                jQuery(target_control).fadeIn(500);
+                jQuery(target_control).children().unbind('click'); 
+                break;
+                case 3:
+                   jQuery(target_control).children().click(function () {return false;});
+                   jQuery(target_caption).fadeOut(500);
+                   jQuery(target_control).fadeOut(500);
+                   break;
+                  case 5:
+                    jQuery(target_control).children().click(function () {return false;});
+                    jQuery(target_caption).fadeOut(500);
+                    jQuery(target_control).fadeOut(500);
+                    break;
+                  default:
+                    break;
+            }
+        };
+
+        jQuery(window).bind('load', function(){
+          jQuery(".carousel-caption").fadeIn(500);
+          jQuery(".controls").fadeIn(500);
+         });
+
+        jQuery('.carousel').bind('slid.bs.carousel', function (event) {
+           jQuery(".controls").fadeIn(500);
+        });
+    </script>
 </body>
 
 </html>
